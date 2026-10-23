@@ -133,20 +133,31 @@ nav {
     max-width: 100%;
     box-sizing: border-box;
     z-index: 1000;
-    background: rgba(250, 247, 242, 0.92);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    padding: 16px 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(150, 120, 60, 0.04);
+    background: rgba(255, 254, 252, 0.96);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-bottom: 1px solid rgba(197, 160, 89, 0.22);
+    padding: 10px 0;
+    transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 8px 28px rgba(20, 17, 14, 0.06);
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gold-gradient);
+    z-index: 2;
 }
 
 nav.scrolled {
-    padding: 11px 0;
-    background: rgba(255, 254, 252, 0.97);
+    padding: 7px 0;
+    background: rgba(255, 254, 252, 0.98);
     border-bottom-color: var(--border-gold);
-    box-shadow: 0 8px 24px rgba(150, 120, 60, 0.09);
+    box-shadow: 0 10px 30px rgba(20, 17, 14, 0.08);
 }
 
 .nav-container {
@@ -164,24 +175,30 @@ nav.scrolled {
 .logo {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     transition: opacity 0.2s;
 }
 
 .logo:hover {
-    opacity: 0.9;
+    opacity: 0.88;
 }
 
 .logo img {
-    width: 165px;
-    height: auto;
+    height: 72px;
+    width: auto;
+    max-width: 220px;
     display: block;
-    filter: none; /* Shows natural logo branding cleanly */
+    object-fit: contain;
+}
+
+nav.scrolled .logo img {
+    height: 60px;
 }
 
 .nav-collapse {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 32px;
     flex: 1;
     justify-content: flex-end;
 }
@@ -189,19 +206,19 @@ nav.scrolled {
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 26px;
     list-style: none;
 }
 
 .nav-menu a {
-    color: var(--text-muted);
-    font-size: 13px;
+    color: var(--text-title);
+    font-size: 12px;
     font-weight: 700;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.4px;
     text-transform: uppercase;
     transition: color 0.25s ease;
     position: relative;
-    padding: 4px 0;
+    padding: 6px 0;
 }
 
 .nav-menu a::after {
@@ -235,15 +252,15 @@ nav.scrolled {
     gap: 8px;
     background: var(--gold-gradient);
     color: #1A150D !important;
-    padding: 11px 24px;
-    border-radius: 6px;
-    font-size: 12px;
+    padding: 12px 22px;
+    border-radius: 4px;
+    font-size: 11px;
     font-weight: 800;
-    letter-spacing: 1.2px;
+    letter-spacing: 1.4px;
     text-transform: uppercase;
     transition: all 0.25s ease;
     white-space: nowrap;
-    box-shadow: 0 4px 16px rgba(197, 160, 89, 0.35);
+    box-shadow: 0 4px 16px rgba(197, 160, 89, 0.32);
 }
 
 .nav-cta:hover {
@@ -254,11 +271,11 @@ nav.scrolled {
 
 .nav-toggle {
     display: none;
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: 6px;
+    background: var(--cream-50);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
     color: var(--text-title);
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     padding: 8px 12px;
     transition: all 0.2s;
@@ -2048,11 +2065,11 @@ footer::after {
 }
 
 .footer-logo {
-    width: 175px;
+    width: 210px;
     height: auto;
     display: block;
     margin-bottom: 18px;
-    filter: brightness(0) invert(1);
+    filter: none;
     transition: opacity 0.25s;
 }
 
@@ -3093,7 +3110,7 @@ footer::after {
 
 @media (max-width: 600px) {
     .nav-container { padding: 0 16px; }
-    .logo img { width: 140px; }
+    .logo img { height: 54px; max-width: 170px; width: auto; }
     
     .hero {
         padding: 110px 16px 60px;
