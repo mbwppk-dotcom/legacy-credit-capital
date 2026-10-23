@@ -1,973 +1,1059 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="eC3Ym6Pq6jqkl1tYee4u4GThYmNh4FYnJ85EkGtG">
     <title>DreamScore — Credit Repair That Actually Delivers Results, Not Excuses</title>
-    <meta name="description" content="We've helped thousands of clients remove negative items and rebuild their credit. Real results — we show receipts.">
-    
+    <meta name="description"
+        content="We've helped thousands of clients remove negative items and rebuild their credit. Real results — we show receipts.">
+
     <!-- External Fonts & Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- External Forms Script -->
     <script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 
     <!-- Theme Stylesheet (Golden & Cream Luxury Theme) -->
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-<!-- ═══════════════════════════════════════
+    <!-- ═══════════════════════════════════════
      CREDIT ASSESSMENT POPUP (5 Steps)
 ════════════════════════════════════════ -->
-<div class="credit-popup-overlay" id="creditAssessmentPopup">
-    <div class="credit-popup-content">
-        <div class="credit-popup-drag-handle"></div>
-        <div class="credit-popup-header">
-            <button class="credit-popup-close" onclick="closeCreditPopup()" aria-label="Close popup">&times;</button>
-            <h3 class="credit-popup-title">Free Credit Assessment</h3>
-            <p class="credit-popup-subtitle">Get your personalized credit improvement plan</p>
-        </div>
-        <div class="credit-progress-container">
-            <div class="credit-progress-bar" id="creditProgressBar"></div>
-        </div>
-        <div class="credit-step-indicator">
-            <span class="credit-step-dot dot-active"></span>
-            <span class="credit-step-dot"></span>
-            <span class="credit-step-dot"></span>
-            <span class="credit-step-dot"></span>
-            <span class="credit-step-dot"></span>
-        </div>
-        <div class="credit-popup-body">
-            <!-- Step 1 -->
-            <div class="credit-popup-step step-active" data-credit-step="1">
-                <div class="question-container">
-                    <h4 class="credit-step-question">What's your current credit score range?</h4>
-                    <div class="credit-options-grid">
-                        <div class="credit-option-button" data-credit-value="below-600"><span>Below 600</span></div>
-                        <div class="credit-option-button" data-credit-value="600-679"><span>600–679</span></div>
-                        <div class="credit-option-button" data-credit-value="680-749"><span>680–749</span></div>
-                        <div class="credit-option-button" data-credit-value="750+"><span>750+</span></div>
-                    </div>
-                </div>
+    <div class="credit-popup-overlay" id="creditAssessmentPopup">
+        <div class="credit-popup-content">
+            <div class="credit-popup-drag-handle"></div>
+            <div class="credit-popup-header">
+                <button class="credit-popup-close" onclick="closeCreditPopup()"
+                    aria-label="Close popup">&times;</button>
+                <h3 class="credit-popup-title">Free Credit Assessment</h3>
+                <p class="credit-popup-subtitle">Get your personalized credit improvement plan</p>
             </div>
-            <!-- Step 2 -->
-            <div class="credit-popup-step" data-credit-step="2">
-                <div class="question-container">
-                    <h4 class="credit-step-question">How much available credit do you have?</h4>
-                    <div class="credit-options-grid">
-                        <div class="credit-option-button" data-credit-value="0-1000"><span>$0 – $1,000</span></div>
-                        <div class="credit-option-button" data-credit-value="1000-5000"><span>$1,000 – $5,000</span></div>
-                        <div class="credit-option-button" data-credit-value="5000-25000"><span>$5,000 – $25,000</span></div>
-                        <div class="credit-option-button" data-credit-value="25000+"><span>$25,000+</span></div>
-                    </div>
-                </div>
+            <div class="credit-progress-container">
+                <div class="credit-progress-bar" id="creditProgressBar"></div>
             </div>
-            <!-- Step 3 -->
-            <div class="credit-popup-step" data-credit-step="3">
-                <div class="question-container">
-                    <h4 class="credit-step-question">What's your main credit goal?</h4>
-                    <div class="credit-options-grid">
-                        <div class="credit-option-button" data-credit-value="buy-home"><span>Buy a home</span></div>
-                        <div class="credit-option-button" data-credit-value="get-funding"><span>Get business funding</span></div>
-                        <div class="credit-option-button" data-credit-value="improve-score"><span>Improve credit score</span></div>
-                        <div class="credit-option-button" data-credit-value="remove-negatives"><span>Remove negative items</span></div>
-                    </div>
-                </div>
+            <div class="credit-step-indicator">
+                <span class="credit-step-dot dot-active"></span>
+                <span class="credit-step-dot"></span>
+                <span class="credit-step-dot"></span>
+                <span class="credit-step-dot"></span>
+                <span class="credit-step-dot"></span>
             </div>
-            <!-- Step 4 -->
-            <div class="credit-popup-step" data-credit-step="4">
-                <div class="question-container">
-                    <h4 class="credit-step-question">When do you need results?</h4>
-                    <div class="credit-options-grid">
-                        <div class="credit-option-button" data-credit-value="30-days"><span>Within 30 days</span></div>
-                        <div class="credit-option-button" data-credit-value="3-months"><span>Within 3 months</span></div>
-                        <div class="credit-option-button" data-credit-value="6-months"><span>Within 6 months</span></div>
-                        <div class="credit-option-button" data-credit-value="no-rush"><span>No specific timeline</span></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Step 5: Lead Form -->
-            <div class="credit-popup-step" data-credit-step="5">
-                <div class="question-container">
-                    <h4 class="credit-step-question">Get Your Free Credit Analysis</h4>
-                    <p style="color:var(--text-muted);font-size:13px;text-align:center;margin-bottom:16px;">Tell us where to send your personalized improvement plan.</p>
-                    <form id="creditPopupLeadForm" class="credit-popup-lead-form" novalidate>
-                        <div class="credit-popup-name-row">
-                            <input type="text"  name="first_name" placeholder="First Name" required class="credit-popup-input">
-                            <input type="text"  name="last_name"  placeholder="Last Name"  required class="credit-popup-input">
+            <div class="credit-popup-body">
+                <!-- Step 1 -->
+                <div class="credit-popup-step step-active" data-credit-step="1">
+                    <div class="question-container">
+                        <h4 class="credit-step-question">What's your current credit score range?</h4>
+                        <div class="credit-options-grid">
+                            <div class="credit-option-button" data-credit-value="below-600"><span>Below 600</span></div>
+                            <div class="credit-option-button" data-credit-value="600-679"><span>600–679</span></div>
+                            <div class="credit-option-button" data-credit-value="680-749"><span>680–749</span></div>
+                            <div class="credit-option-button" data-credit-value="750+"><span>750+</span></div>
                         </div>
-                        <input type="email" name="email" placeholder="Email Address" required class="credit-popup-input">
-                        <input type="tel"   name="phone" placeholder="Phone Number"  required class="credit-popup-input">
-                        <button type="submit" class="credit-popup-submit-btn">
-                            <span class="btn-label">Get My Free Plan</span>
-                            <span class="btn-spinner" hidden>Sending…</span>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="credit-popup-step" data-credit-step="2">
+                    <div class="question-container">
+                        <h4 class="credit-step-question">How much available credit do you have?</h4>
+                        <div class="credit-options-grid">
+                            <div class="credit-option-button" data-credit-value="0-1000"><span>$0 – $1,000</span></div>
+                            <div class="credit-option-button" data-credit-value="1000-5000"><span>$1,000 – $5,000</span>
+                            </div>
+                            <div class="credit-option-button" data-credit-value="5000-25000"><span>$5,000 –
+                                    $25,000</span></div>
+                            <div class="credit-option-button" data-credit-value="25000+"><span>$25,000+</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="credit-popup-step" data-credit-step="3">
+                    <div class="question-container">
+                        <h4 class="credit-step-question">What's your main credit goal?</h4>
+                        <div class="credit-options-grid">
+                            <div class="credit-option-button" data-credit-value="buy-home"><span>Buy a home</span></div>
+                            <div class="credit-option-button" data-credit-value="get-funding"><span>Get business
+                                    funding</span></div>
+                            <div class="credit-option-button" data-credit-value="improve-score"><span>Improve credit
+                                    score</span></div>
+                            <div class="credit-option-button" data-credit-value="remove-negatives"><span>Remove negative
+                                    items</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="credit-popup-step" data-credit-step="4">
+                    <div class="question-container">
+                        <h4 class="credit-step-question">When do you need results?</h4>
+                        <div class="credit-options-grid">
+                            <div class="credit-option-button" data-credit-value="30-days"><span>Within 30 days</span>
+                            </div>
+                            <div class="credit-option-button" data-credit-value="3-months"><span>Within 3 months</span>
+                            </div>
+                            <div class="credit-option-button" data-credit-value="6-months"><span>Within 6 months</span>
+                            </div>
+                            <div class="credit-option-button" data-credit-value="no-rush"><span>No specific
+                                    timeline</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Step 5: Lead Form -->
+                <div class="credit-popup-step" data-credit-step="5">
+                    <div class="question-container">
+                        <h4 class="credit-step-question">Get Your Free Credit Analysis</h4>
+                        <p style="color:var(--text-muted);font-size:13px;text-align:center;margin-bottom:16px;">Tell us
+                            where to send your personalized improvement plan.</p>
+                        <form id="creditPopupLeadForm" class="credit-popup-lead-form" novalidate>
+                            <div class="credit-popup-name-row">
+                                <input type="text" name="first_name" placeholder="First Name" required
+                                    class="credit-popup-input">
+                                <input type="text" name="last_name" placeholder="Last Name" required
+                                    class="credit-popup-input">
+                            </div>
+                            <input type="email" name="email" placeholder="Email Address" required
+                                class="credit-popup-input">
+                            <input type="tel" name="phone" placeholder="Phone Number" required
+                                class="credit-popup-input">
+                            <button type="submit" class="credit-popup-submit-btn">
+                                <span class="btn-label">Get My Free Plan</span>
+                                <span class="btn-spinner" hidden>Sending…</span>
+                            </button>
+                            <p class="credit-popup-form-msg" role="status" aria-live="polite"></p>
+                        </form>
+                    </div>
+                </div>
+                <!-- Navigation -->
+                <div class="credit-popup-navigation" id="creditPopupNavigation">
+                    <button class="credit-nav-btn credit-btn-back" onclick="prevCreditStep()" style="display:none;">←
+                        Back</button>
+                    <button class="credit-nav-btn credit-btn-next" onclick="nextCreditStep()" disabled>Next →</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════ -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" aria-label="DreamScore Home">
+                <img src="assets/images/logo.png" alt="DreamScore Logo">
+            </a>
+
+            <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"
+                aria-controls="navCollapse">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+
+            <div class="nav-collapse" id="navCollapse">
+                <ul class="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#remove">What We Remove</a></li>
+                    <li><a href="#consultation">Free Consultation</a></li>
+                    <li><a href="#process">After Purchase</a></li>
+                    <li><a href="#testimonials">Results</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+                
+                <div class="nav-collapse-actions">
+                    <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG" target="_blank"
+                        rel="noopener" class="nav-cta">
+                        <i class="fas fa-calendar-check"></i> Free Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+    <section class="hero" id="home">
+        <canvas id="heroCanvas"></canvas>
+        <div class="hero-glow"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-container">
+            <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot"></span>
+                The Credit Repair Company That Actually Delivers
+            </div>
+
+            <h1 class="hero-title">Get With the Credit Repair Company<br>That Actually Delivers <span
+                    class="hero-title-gold-inline">Results — Not Excuses.</span></h1>
+            <div class="hero-divider"></div>
+
+            <p class="hero-subtitle">
+                We remove foreclosures, collections, bankruptcies &amp; more — on all 3 bureaus. Legally. Aggressively.
+                Fast.
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-target="30000" data-suffix="K+">0</span>
+                    <span class="hero-stat-label">Clients Served</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-target="100" data-prefix="$" data-suffix="M+">0</span>
+                    <span class="hero-stat-label">Debt Removed</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-num" data-target="6" data-suffix="">0</span>
+                    <span class="hero-stat-label">Dispute Rounds</span>
+                </div>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="#consultation" class="btn-gold"><i class="fas fa-calendar-check"></i> Free Consultation</a>
+                <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG" target="_blank"
+                    rel="noopener" class="btn-outline-gold">Book Live Call →</a>
+            </div>
+        </div>
+
+        <div class="hero-scroll-hint">
+            <span>Scroll</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     WHAT WE CAN REMOVE
+════════════════════════════════════════ -->
+    <section class="remove-section" id="remove">
+        <div class="section-header" data-anim="up">
+            <span class="section-eyebrow">Negative Items We Target</span>
+            <h2 class="section-title">What We Can Remove</h2>
+            <p class="section-subtitle">We dispute every type of negative item across all 3 credit bureaus —
+                simultaneously.</p>
+        </div>
+
+        <div class="remove-grid" data-stagger>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Foreclosures</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Collections</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Charge-Offs</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Student Loans</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Judgments</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Medical Bills</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Late Payments</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Repossessions</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Public Records</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Bankruptcies</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Child-Support</span>
+            </div>
+            <div class="remove-item">
+                <div class="remove-check"><i class="fas fa-check"></i></div>
+                <span class="remove-text">Hard Inquiries</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     FREE CONSULTATION
+════════════════════════════════════════ -->
+    <section class="consultation-section" id="consultation">
+        <div class="section-header" data-anim="up">
+            <span class="section-eyebrow"><i class="fas fa-crown"></i> 100% Free Strategy Session • No Obligation</span>
+            <h2 class="section-title">Claim Your Free 1-on-1<br><span style="color:var(--gold-dark)">Credit Audit &amp;
+                    Action Plan</span></h2>
+            <p class="section-subtitle">Speak directly with a certified credit specialist. We'll audit your 3-bureau
+                credit reports, pinpoint disputable negative accounts, and map out your fastest path to an 800+ score.
+            </p>
+        </div>
+
+        <div class="consultation-container">
+            <!-- Left Column: Value Pillars -->
+            <div class="consultation-left" data-anim="left">
+                <div class="consultation-value-header">
+                    <div class="consult-val-badge">
+                        <i class="fas fa-certificate"></i> $297 Value — 100% Free Today
+                    </div>
+                    <h3 class="consult-val-title">What Happens In Your Strategy Session</h3>
+                    <p class="consult-val-desc">In 15–20 focused minutes, we dissect your credit profile and give you
+                        actionable clarity with zero sales pressure.</p>
+                </div>
+
+                <div class="consult-pillars">
+                    <!-- Pillar 1 -->
+                    <div class="consult-pillar-card">
+                        <div class="consult-pillar-icon">
+                            <i class="fas fa-magnifying-glass-chart"></i>
+                        </div>
+                        <div class="consult-pillar-content">
+                            <h4>Full 3-Bureau Forensic Audit</h4>
+                            <p>We review your TransUnion, Experian, and Equifax reports line-by-line to uncover
+                                reporting errors, outdated records, and FCRA violations.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 2 -->
+                    <div class="consult-pillar-card">
+                        <div class="consult-pillar-icon">
+                            <i class="fas fa-shield-halved"></i>
+                        </div>
+                        <div class="consult-pillar-content">
+                            <h4>Custom Deletion Blueprint</h4>
+                            <p>Discover which collections, charge-offs, late payments, inquiries, or bankruptcies
+                                qualify for legal removal under federal consumer laws.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 3 -->
+                    <div class="consult-pillar-card">
+                        <div class="consult-pillar-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="consult-pillar-content">
+                            <h4>Score Acceleration Roadmap</h4>
+                            <p>Get immediate, high-impact recommendations on credit utilization, debt rebalancing, and
+                                positive trade lines to quickly build 700+ credit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pillar 4 -->
+                    <div class="consult-pillar-card">
+                        <div class="consult-pillar-icon">
+                            <i class="fas fa-handshake-angle"></i>
+                        </div>
+                        <div class="consult-pillar-content">
+                            <h4>Zero Pressure, 100% Honest Guidance</h4>
+                            <p>No high-pressure sales pitch. Just direct, transparent advice tailored to your personal
+                                goals — buying a house, car, or business funding.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Guarantee Badges Strip -->
+                <div class="consult-guarantees-strip">
+                    <div class="consult-guarantee-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>No Hard Inquiry</strong>
+                            <span>Will NOT hurt your credit score</span>
+                        </div>
+                    </div>
+                    <div class="consult-guarantee-item">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <strong>Bank-Level Security</strong>
+                            <span>256-Bit SSL protected data</span>
+                        </div>
+                    </div>
+                    <div class="consult-guarantee-item">
+                        <i class="fas fa-award"></i>
+                        <div>
+                            <strong>Proven Results</strong>
+                            <span>30,000+ files transformed</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Interactive Booking Card -->
+            <div class="consultation-right" data-anim="right">
+                <div class="consultation-booking-card">
+                    <div class="booking-card-top-tag">
+                        <span class="live-dot"></span> Live Specialist Calendar Open
+                    </div>
+
+                    <div class="booking-card-header">
+                        <h3 class="booking-card-title">Book Your Free Call</h3>
+                        <p class="booking-card-subtitle">Choose the quickest way to speak with our credit advisory team:
+                        </p>
+                    </div>
+
+                    <!-- Direct Instant Calendar Option -->
+                    <div class="booking-instant-box">
+                        <div class="instant-box-badge">Recommended • Fastest Option</div>
+                        <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG" target="_blank"
+                            rel="noopener" class="btn-calendar-direct">
+                            <div class="btn-cal-icon"><i class="fas fa-calendar-check"></i></div>
+                            <div class="btn-cal-info">
+                                <span class="btn-cal-main">Select Time on Live Calendar</span>
+                                <span class="btn-cal-sub">Instant confirmation • Syncs to your phone</span>
+                            </div>
+                            <div class="btn-cal-arrow"><i class="fas fa-arrow-right"></i></div>
+                        </a>
+                    </div>
+
+                    <div class="booking-or-divider">
+                        <span>OR SUBMIT A QUICK REQUEST</span>
+                    </div>
+
+                    <!-- In-Card Request Form -->
+                    <form id="consultationSectionForm" class="consult-section-form"
+                        onsubmit="handleSectionConsultSubmit(event)">
+                        <div class="consult-form-grid">
+                            <div class="consult-form-group">
+                                <label class="consult-label">First Name *</label>
+                                <input type="text" name="firstName" class="consult-input" placeholder="e.g. Marcus"
+                                    required>
+                            </div>
+                            <div class="consult-form-group">
+                                <label class="consult-label">Last Name *</label>
+                                <input type="text" name="lastName" class="consult-input" placeholder="e.g. Johnson"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="consult-form-grid">
+                            <div class="consult-form-group">
+                                <label class="consult-label">Phone Number *</label>
+                                <input type="tel" name="phone" class="consult-input" placeholder="(555) 000-0000"
+                                    required>
+                            </div>
+                            <div class="consult-form-group">
+                                <label class="consult-label">Email Address *</label>
+                                <input type="email" name="email" class="consult-input" placeholder="name@email.com"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="consult-form-group">
+                            <label class="consult-label">Primary Financial Goal</label>
+                            <select name="creditGoal" class="consult-select">
+                                <option value="buy-home">🏡 Buying a Home / Getting a Mortgage</option>
+                                <option value="business-funding">💼 Business Funding &amp; Commercial Loans</option>
+                                <option value="buy-car">🚗 Buying a Car / Lowering Auto Interest</option>
+                                <option value="remove-negatives">⚡ Removing Collections, Charge-Offs &amp; Bankruptcies
+                                </option>
+                                <option value="improve-score">📈 General Score Improvement (Reach 720+ / 800+)</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="consult-submit-button">
+                            <i class="fas fa-paper-plane"></i> Request My Free Call &amp; Action Plan
                         </button>
-                        <p class="credit-popup-form-msg" role="status" aria-live="polite"></p>
+
+                        <p class="consult-section-form-msg" id="consultSectionMsg" role="status" aria-live="polite"></p>
+
+                        <div class="consult-privacy-note">
+                            <i class="fas fa-lock"></i> Strictly confidential. No spam, no sales calls after hours.
+                        </div>
                     </form>
                 </div>
             </div>
-            <!-- Navigation -->
-            <div class="credit-popup-navigation" id="creditPopupNavigation">
-                <button class="credit-nav-btn credit-btn-back" onclick="prevCreditStep()" style="display:none;">← Back</button>
-                <button class="credit-nav-btn credit-btn-next" onclick="nextCreditStep()" disabled>Next →</button>
+        </div>
+
+        <!-- Proof / Metrics Ribbon under the consultation cards -->
+        <div class="consultation-proof-bar" data-anim="up">
+            <div class="proof-metric-item">
+                <span class="proof-metric-number">30,000+</span>
+                <span class="proof-metric-label">Credit Files Audited</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-metric-item">
+                <span class="proof-metric-number">$100M+</span>
+                <span class="proof-metric-label">Negative Debt Challenged</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-metric-item">
+                <span class="proof-metric-number">4.9 / 5.0</span>
+                <span class="proof-metric-label">Client Satisfaction Rating</span>
+            </div>
+            <div class="proof-divider"></div>
+            <div class="proof-metric-item">
+                <span class="proof-metric-number">100% Free</span>
+                <span class="proof-metric-label">No Obligation Strategy Call</span>
             </div>
         </div>
-    </div>
-</div>
+    </section>
 
-<!-- ═══════════════════════════════════════
-     NAVBAR
+    <!-- ═══════════════════════════════════════
+     FOUNDER SECTION
 ════════════════════════════════════════ -->
-<nav id="navbar">
-    <div class="nav-container">
-        <a href="#home" class="logo" aria-label="DreamScore Home">
-            <img src="assets/images/logo.png" alt="DreamScore Logo">
-        </a>
-
-        <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navCollapse">
-            <i class="fas fa-bars" aria-hidden="true"></i>
-        </button>
-
-        <div class="nav-collapse" id="navCollapse">
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#remove">What We Remove</a></li>
-                <li><a href="#consultation">Free Consultation</a></li>
-                <li><a href="#process">After Purchase</a></li>
-                <li><a href="#testimonials">Results</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-            <div class="nav-collapse-actions">
-                <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG"
-                   target="_blank" rel="noopener"
-                   class="nav-cta">
-                    <i class="fas fa-calendar-check"></i> Free Consultation
-                </a>
+    <section class="founder-section" id="about">
+        <div class="founder-content">
+            <div class="founder-text" data-anim="left">
+                <h2 class="founder-title">Meet Your Credit Expert</h2>
+                <p class="founder-sub">The person behind your transformation</p>
+                <div class="founder-body">
+                    <p>Welcome to DreamScore! I'm Taletha, and I founded DreamScore out of a genuine passion for helping
+                        people unlock their financial potential. My journey into credit repair began with a simple
+                        realization: so many people have dreams that feel out of reach — not because they lack ambition,
+                        but because they need a trusted guide to help rebuild their credit and reclaim their financial
+                        freedom.</p>
+                    <p>I created DreamScore to be that guide. With a background in financial services and a commitment
+                        to empowering others, I built a place where clients feel supported, educated, and confident in
+                        their financial future.</p>
+                    <p>At DreamScore, we believe in turning credit scores into stepping stones toward your biggest goals
+                        — whether that's owning a home, starting a business, or simply feeling in control of your money.
+                        Thank you for letting us be part of your story.</p>
+                </div>
+                <ul class="founder-highlights">
+                    <li><i class="fas fa-check-circle"></i> Helped thousands of clients rebuild their credit</li>
+                    <li><i class="fas fa-check-circle"></i> Expert in 3-bureau dispute strategies</li>
+                    <li><i class="fas fa-check-circle"></i> Committed to real results — not empty promises</li>
+                </ul>
+            </div>
+            <div class="founder-image" data-anim="right">
+                <div class="image-wrapper">
+                    <img src="assets/images/Founder.jpg" alt="Taletha Crow — Credit Expert" class="founder-photo">
+                    <div class="image-badge">
+                        <span class="badge-text">Taletha Crow — Founder, DreamScore</span>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </section>
 
-<!-- ═══════════════════════════════════════
-     HERO
+    <!-- ═══════════════════════════════════════
+     WHAT HAPPENS AFTER PURCHASE
 ════════════════════════════════════════ -->
-<section class="hero" id="home">
-    <canvas id="heroCanvas"></canvas>
-    <div class="hero-glow"></div>
-    <div class="hero-grid"></div>
-
-    <div class="hero-container">
-        <div class="hero-eyebrow">
-            <span class="hero-eyebrow-dot"></span>
-            The Credit Repair Company That Actually Delivers
+    <section class="purchase-section" id="process">
+        <div class="section-header" data-anim="up">
+            <span class="section-eyebrow">Your Roadmap</span>
+            <h2 class="section-title">What Happens<br><span style="color:var(--gold-dark)">After Purchase?</span></h2>
+            <p class="section-subtitle">Follow these steps exactly — every step is required to start your service.</p>
         </div>
 
-        <h1 class="hero-title">Get With the Credit Repair Company<br>That Actually Delivers <span class="hero-title-gold-inline">Results — Not Excuses.</span></h1>
-        <div class="hero-divider"></div>
-
-        <p class="hero-subtitle">
-            We remove foreclosures, collections, bankruptcies &amp; more — on all 3 bureaus. Legally. Aggressively. Fast.
-        </p>
-
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <span class="hero-stat-num" data-target="30000" data-suffix="K+">0</span>
-                <span class="hero-stat-label">Clients Served</span>
+        <div class="purchase-steps" data-stagger>
+            <!-- Step 01 -->
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <div class="step-title">Purchase Your Plan</div>
+                <p class="step-desc">Secure your spot and get started. Choose the plan that fits your goals — monthly,
+                    one-time, or couples.</p>
             </div>
-            <div class="hero-stat">
-                <span class="hero-stat-num" data-target="100" data-prefix="$" data-suffix="M+">0</span>
-                <span class="hero-stat-label">Debt Removed</span>
+
+            <!-- Step 02 -->
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <div class="step-title">Activate Smart Credit</div>
+                <div class="step-price">($39/Month Required)</div>
+                <div class="step-mandatory">Mandatory to Start Your Service</div>
+                <ul class="step-list">
+                    <li>Must be activated immediately after purchase</li>
+                    <li>We cannot access or work your credit without it</li>
+                    <li>Pay the $39 Smart Credit fee to unlock your account</li>
+                </ul>
+                <div class="step-warning">
+                    <div class="step-warning-item"><i class="fas fa-exclamation-triangle"></i> NO SMART CREDIT = NO
+                        SERVICE</div>
+                    <div class="step-warning-item"><i class="fas fa-lock"></i> ACCOUNT WILL BE PLACED ON HOLD</div>
+                </div>
             </div>
-            <div class="hero-stat">
-                <span class="hero-stat-num" data-target="6" data-suffix="">0</span>
-                <span class="hero-stat-label">Dispute Rounds</span>
+
+            <!-- Step 03 -->
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <div class="step-title">Complete Onboarding + Submit Documents</div>
+                <p class="step-desc">Check your email immediately after purchase and complete your onboarding form.</p>
+                <div class="step-docs-title">Required Documents (Non-Negotiable)</div>
+                <ul class="step-list">
+                    <li>Valid Government-Issued ID</li>
+                    <li>Social Security Card or SSN Documentation</li>
+                    <li>Proof of Address (dated within the last 30 days)</li>
+                </ul>
+                <div class="step-docs-title" style="margin-top:16px;">Acceptable Proof of Address</div>
+                <ul class="step-list">
+                    <li>Utility bill</li>
+                    <li>Bank statement</li>
+                    <li>Lease or mortgage statement</li>
+                </ul>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <div class="step-title">We Begin Your Disputes</div>
+                <p class="step-desc">Once Smart Credit is active and onboarding is complete, we get to work immediately.
+                </p>
+                <ul class="step-list">
+                    <li>Your 1st round of disputes is sent after onboarding is complete</li>
+                    <li>You receive 6 total rounds of disputes (unless on the Unlimited plan)</li>
+                    <li>A new round is sent every 30–45 days</li>
+                    <li>We handle the entire process — you focus on your results</li>
+                </ul>
+
+                <div class="step-important">
+                    <div class="step-important-title">⚠ Important — Your Account Will Not Be Started If:</div>
+                    <ul class="step-important-list">
+                        <li>Smart Credit is not activated</li>
+                        <li>Onboarding is not completed</li>
+                        <li>Documents have not been submitted</li>
+                    </ul>
+                    <div class="step-verdict">All 3 Steps Must Be Complete Before Work Begins</div>
+                </div>
             </div>
         </div>
 
-        <div class="hero-buttons">
-            <a href="#consultation" class="btn-gold"><i class="fas fa-calendar-check"></i> Free Consultation</a>
-            <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG"
-               target="_blank" rel="noopener"
-               class="btn-outline-gold">Book Live Call →</a>
+        <div style="text-align:center;margin-top:48px;">
+            <a href="#consultation" class="btn-gold btn-cta-lg">Book Free Consultation →</a>
         </div>
-    </div>
+    </section>
 
-    <div class="hero-scroll-hint">
-        <span>Scroll</span>
-        <i class="fas fa-chevron-down"></i>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     WHAT WE CAN REMOVE
+    <!-- ═══════════════════════════════════════
+     TESTIMONIALS
 ════════════════════════════════════════ -->
-<section class="remove-section" id="remove">
-    <div class="section-header" data-anim="up">
-        <span class="section-eyebrow">Negative Items We Target</span>
-        <h2 class="section-title">What We Can Remove</h2>
-        <p class="section-subtitle">We dispute every type of negative item across all 3 credit bureaus — simultaneously.</p>
-    </div>
+    <section class="testimonials-section" id="testimonials">
+        <div class="section-header" data-anim="up">
+            <span class="section-eyebrow">Client Results</span>
+            <h2 class="section-title">Real People. Real Results.</h2>
+            <p class="section-subtitle">We show receipts — not just promises. Here's what our clients have achieved.</p>
+        </div>
 
-    <div class="remove-grid" data-stagger>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Foreclosures</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Collections</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Charge-Offs</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Student Loans</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Judgments</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Medical Bills</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Late Payments</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Repossessions</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Public Records</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Bankruptcies</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Child-Support</span>
-        </div>
-        <div class="remove-item">
-            <div class="remove-check"><i class="fas fa-check"></i></div>
-            <span class="remove-text">Hard Inquiries</span>
-        </div>
-    </div>
-</section>
+        <div class="testimonials-grid" data-stagger>
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"DreamScore removed 17 negative items including a bankruptcy. My score went
+                    from 372 to 719 in just 45 days!"</p>
+                <div class="testimonial-author">Marcus Johnson</div>
+                <div class="testimonial-meta">Real Estate Investor • Houston, TX</div>
+                <div class="before-after-container">
+                    <div class="before-after-item">
+                        <div class="score-label">Before</div>
+                        <div class="score-value">372</div>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="score-label">After</div>
+                        <div class="score-value">719</div>
+                    </div>
+                </div>
+                <div class="testimonial-image">
+                    <img src="assets/images/test1.jpg" alt="Client result screenshot">
+                </div>
+            </div>
 
-<!-- ═══════════════════════════════════════
-     FREE CONSULTATION
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Collections stopped calling and I got approved for $75K in funding. My
+                    salon is thriving now!"</p>
+                <div class="testimonial-author">Keisha Williams</div>
+                <div class="testimonial-meta">Salon Owner • Atlanta, GA</div>
+                <div class="before-after-container">
+                    <div class="before-after-item">
+                        <div class="score-label">Before</div>
+                        <div class="score-value">496</div>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="score-label">After</div>
+                        <div class="score-value">755</div>
+                    </div>
+                </div>
+                <div class="testimonial-image">
+                    <img src="assets/images/test2.jpg" alt="Client result screenshot">
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"My divorce destroyed my credit. DreamScore rebuilt everything in 30 days.
+                    Just bought my dream car!"</p>
+                <div class="testimonial-author">Jennifer Martinez</div>
+                <div class="testimonial-meta">Entrepreneur • Los Angeles, CA</div>
+                <div class="before-after-container">
+                    <div class="before-after-item">
+                        <div class="score-label">Before</div>
+                        <div class="score-value">428</div>
+                    </div>
+                    <div class="before-after-item">
+                        <div class="score-label">After</div>
+                        <div class="score-value">801</div>
+                    </div>
+                </div>
+                <div class="testimonial-image">
+                    <img src="assets/images/test3.jpg" alt="Client result screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     FAQ
 ════════════════════════════════════════ -->
-<section class="consultation-section" id="consultation">
-    <div class="section-header" data-anim="up">
-        <span class="section-eyebrow"><i class="fas fa-crown"></i> 100% Free Strategy Session • No Obligation</span>
-        <h2 class="section-title">Claim Your Free 1-on-1<br><span style="color:var(--gold-dark)">Credit Audit &amp; Action Plan</span></h2>
-        <p class="section-subtitle">Speak directly with a certified credit specialist. We'll audit your 3-bureau credit reports, pinpoint disputable negative accounts, and map out your fastest path to an 800+ score.</p>
-    </div>
+    <section class="faq-section" id="faq">
+        <div class="section-header" data-anim="up">
+            <span class="section-eyebrow">Still Not Sure?</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know before you get started.</p>
+        </div>
 
-    <div class="consultation-container">
-        <!-- Left Column: Value Pillars -->
-        <div class="consultation-left" data-anim="left">
-            <div class="consultation-value-header">
-                <div class="consult-val-badge">
-                    <i class="fas fa-certificate"></i> $297 Value — 100% Free Today
-                </div>
-                <h3 class="consult-val-title">What Happens In Your Strategy Session</h3>
-                <p class="consult-val-desc">In 15–20 focused minutes, we dissect your credit profile and give you actionable clarity with zero sales pressure.</p>
-            </div>
-
-            <div class="consult-pillars">
-                <!-- Pillar 1 -->
-                <div class="consult-pillar-card">
-                    <div class="consult-pillar-icon">
-                        <i class="fas fa-magnifying-glass-chart"></i>
-                    </div>
-                    <div class="consult-pillar-content">
-                        <h4>Full 3-Bureau Forensic Audit</h4>
-                        <p>We review your TransUnion, Experian, and Equifax reports line-by-line to uncover reporting errors, outdated records, and FCRA violations.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 2 -->
-                <div class="consult-pillar-card">
-                    <div class="consult-pillar-icon">
-                        <i class="fas fa-shield-halved"></i>
-                    </div>
-                    <div class="consult-pillar-content">
-                        <h4>Custom Deletion Blueprint</h4>
-                        <p>Discover which collections, charge-offs, late payments, inquiries, or bankruptcies qualify for legal removal under federal consumer laws.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 3 -->
-                <div class="consult-pillar-card">
-                    <div class="consult-pillar-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="consult-pillar-content">
-                        <h4>Score Acceleration Roadmap</h4>
-                        <p>Get immediate, high-impact recommendations on credit utilization, debt rebalancing, and positive trade lines to quickly build 700+ credit.</p>
-                    </div>
-                </div>
-
-                <!-- Pillar 4 -->
-                <div class="consult-pillar-card">
-                    <div class="consult-pillar-icon">
-                        <i class="fas fa-handshake-angle"></i>
-                    </div>
-                    <div class="consult-pillar-content">
-                        <h4>Zero Pressure, 100% Honest Guidance</h4>
-                        <p>No high-pressure sales pitch. Just direct, transparent advice tailored to your personal goals — buying a house, car, or business funding.</p>
-                    </div>
+        <div class="faq-container" data-stagger>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What happens during my Free Consultation?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">During your free consultation, our certified credit specialist will
+                        conduct a line-by-line audit of your credit reports across all 3 bureaus (Equifax, Experian,
+                        TransUnion). We will identify every disputable negative item, explain your rights under federal
+                        law (FCRA/CROA), and give you an actionable roadmap to hit your target score — 100% free with
+                        zero obligation.</div>
                 </div>
             </div>
 
-            <!-- Guarantee Badges Strip -->
-            <div class="consult-guarantees-strip">
-                <div class="consult-guarantee-item">
-                    <i class="fas fa-shield-alt"></i>
-                    <div>
-                        <strong>No Hard Inquiry</strong>
-                        <span>Will NOT hurt your credit score</span>
-                    </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How long does it take to see results?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Most clients begin seeing initial removals within 30–45 days after
+                        their first round of disputes is sent. We send 6 total rounds, each spaced 30–45 days apart.
+                        Results vary based on the number and type of negative items on your report, but you'll be
+                        updated every step of the way.</div>
                 </div>
-                <div class="consult-guarantee-item">
-                    <i class="fas fa-lock"></i>
-                    <div>
-                        <strong>Bank-Level Security</strong>
-                        <span>256-Bit SSL protected data</span>
-                    </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What items can you remove?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">We dispute foreclosures, student loans, late payments, bankruptcies,
+                        collections, judgments, repossessions, child support, charge-offs, medical bills, public
+                        records, and hard inquiries — across all 3 bureaus simultaneously. No item is off-limits for
+                        dispute.</div>
                 </div>
-                <div class="consult-guarantee-item">
-                    <i class="fas fa-award"></i>
-                    <div>
-                        <strong>Proven Results</strong>
-                        <span>30,000+ files transformed</span>
-                    </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How can I improve my credit score faster?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">In addition to our dispute process, we recommend: keeping credit
+                        utilization below 30%, making all payments on time, avoiding opening too many new accounts at
+                        once, and maintaining older accounts to build history. We'll give you specific guidance during
+                        onboarding.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Where can I see my credit reports? Is there a charge?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">You can access free reports at AnnualCreditReport.com. We also require
+                        Smart Credit ($39/month) which gives you live, real-time access to all 3 bureau reports and
+                        allows us to monitor changes as disputes are processed. Smart Credit is mandatory to begin your
+                        service.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How long does it take to fix my credit?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Most standard programs run 3–6 months depending on your credit
+                        profile. Our service includes 6 rounds of disputes. Clients with more complex files or the
+                        Unlimited plan continue until they reach their goals. You will see incremental improvements
+                        throughout the process — not just at the end.</div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How do I get started?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">Getting started is simple: (1) Book your Free Consultation above or
+                        choose a slot on our live calendar, (2) We review your credit profile and design your customized
+                        action plan, (3) Activate Smart Credit ($39/month) so we can pull your real-time 3-bureau
+                        reports, and (4) We launch your aggressive dispute rounds immediately.</div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <!-- Right Column: Interactive Booking Card -->
-        <div class="consultation-right" data-anim="right">
-            <div class="consultation-booking-card">
-                <div class="booking-card-top-tag">
-                    <span class="live-dot"></span> Live Specialist Calendar Open
+    <!-- ═══════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════ -->
+    <section class="final-cta">
+        <div class="final-container" data-anim="up">
+            <span class="final-eyebrow">Stop Waiting — Start Winning</span>
+            <h2 class="final-title">Every Day You Wait Is<br><span>Money You're Losing.</span></h2>
+            <p class="final-subtitle">Thousands of clients have already fixed their credit and unlocked opportunities
+                they once thought were impossible. You're next.</p>
+
+            <div class="final-actions">
+                <a href="#consultation" class="btn-gold btn-cta-lg">Claim Free Consultation →</a>
+                <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG" target="_blank"
+                    rel="noopener" class="btn-outline-gold">Direct Calendar Booking</a>
+            </div>
+
+            <div class="final-trust">
+                <span><i class="fas fa-shield-alt"></i> No Hard Pull</span>
+                <span><i class="fas fa-lock"></i> Secure &amp; Private</span>
+                <span><i class="fas fa-times-circle"></i> Cancel Anytime</span>
+                <span><i class="fas fa-star"></i> 30,000+ Clients Served</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+     PRE-FOOTER TRUST STRIP
+════════════════════════════════════════ -->
+    <div class="footer-trust-strip">
+        <div class="footer-trust-container">
+            <div class="footer-trust-item">
+                <div class="footer-trust-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="footer-trust-text">
+                    <strong>CROA &amp; FCRA Compliant</strong>
+                    <span>100% Legal Dispute Methods</span>
                 </div>
-                
-                <div class="booking-card-header">
-                    <h3 class="booking-card-title">Book Your Free Call</h3>
-                    <p class="booking-card-subtitle">Choose the quickest way to speak with our credit advisory team:</p>
+            </div>
+            <div class="footer-trust-item">
+                <div class="footer-trust-icon"><i class="fas fa-lock"></i></div>
+                <div class="footer-trust-text">
+                    <strong>256-Bit SSL Protection</strong>
+                    <span>Bank-Grade Data Encryption</span>
+                </div>
+            </div>
+            <div class="footer-trust-item">
+                <div class="footer-trust-icon"><i class="fas fa-bolt"></i></div>
+                <div class="footer-trust-text">
+                    <strong>3-Bureau Direct Attack</strong>
+                    <span>Equifax, Experian &amp; TransUnion</span>
+                </div>
+            </div>
+            <div class="footer-trust-item">
+                <div class="footer-trust-icon"><i class="fas fa-award"></i></div>
+                <div class="footer-trust-text">
+                    <strong>30,000+ Happy Clients</strong>
+                    <span>Real Receipts &amp; Verified Results</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand & Bio -->
+                <div class="footer-column">
+                    <a href="#home" aria-label="DreamScore Home">
+                        <img src="assets/images/logo.png" alt="DreamScore Logo" class="footer-logo">
+                    </a>
+                    <p class="footer-description">
+                        Transform your credit, transform your life. DreamScore is committed to helping you achieve real
+                        financial freedom through proven, aggressive 3-bureau credit repair strategies.
+                    </p>
+                    <div class="footer-badge-pill">
+                        <i class="fas fa-certificate"></i> Certified Credit Restoration
+                    </div>
                 </div>
 
-                <!-- Direct Instant Calendar Option -->
-                <div class="booking-instant-box">
-                    <div class="instant-box-badge">Recommended • Fastest Option</div>
-                    <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG"
-                       target="_blank" rel="noopener"
-                       class="btn-calendar-direct">
-                        <div class="btn-cal-icon"><i class="fas fa-calendar-check"></i></div>
-                        <div class="btn-cal-info">
-                            <span class="btn-cal-main">Select Time on Live Calendar</span>
-                            <span class="btn-cal-sub">Instant confirmation • Syncs to your phone</span>
+                <!-- Col 2: Navigation Links -->
+                <div class="footer-column">
+                    <h3>Navigation</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#remove">What We Remove</a></li>
+                        <li><a href="#consultation">Free Consultation</a></li>
+                        <li><a href="#process">After Purchase</a></li>
+                        <li><a href="#testimonials">Client Results</a></li>
+                        <li><a href="#faq">Frequently Asked</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Items We Dispute -->
+                <div class="footer-column">
+                    <h3>We Dispute</h3>
+                    <ul class="footer-links-list">
+                        <li><a href="#remove">Foreclosures</a></li>
+                        <li><a href="#remove">Collections</a></li>
+                        <li><a href="#remove">Charge-Offs</a></li>
+                        <li><a href="#remove">Bankruptcies</a></li>
+                        <li><a href="#remove">Late Payments</a></li>
+                        <li><a href="#remove">Student Loans</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Contact & Support -->
+                <div class="footer-column">
+                    <h3>Contact &amp; Hours</h3>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <strong>Client Support:</strong><br>
+                            <a href="mailto:support@unlockyourdreamscore.com">support@unlockyourdreamscore.com</a>
                         </div>
-                        <div class="btn-cal-arrow"><i class="fas fa-arrow-right"></i></div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <strong>Business Hours:</strong><br>
+                            Mon–Fri: 9:00 AM – 6:00 PM CST
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Nationwide Service:</strong><br>
+                            All 50 US States Covered
+                        </div>
+                    </div>
+                    <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG" target="_blank"
+                        rel="noopener" class="footer-consult-btn">
+                        <i class="fas fa-calendar-check"></i> Free Consultation
                     </a>
                 </div>
 
-                <div class="booking-or-divider">
-                    <span>OR SUBMIT A QUICK REQUEST</span>
+                <!-- Col 5: Connect & Reviews -->
+                <div class="footer-column">
+                    <h3>Stay Connected</h3>
+                    <div class="footer-social-wrapper">
+                        <p class="footer-social-title">Follow Us Online</p>
+                        <div class="social-icons-luxury">
+                            <a href="https://www.facebook.com/profile.php?id=61594965584557&mibextid=wwXIfr&mibextid=wwXIfr"
+                                class="luxury-social-btn" target="_blank" rel="noopener" aria-label="Facebook"><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a href="https://youtube.com/@YourChannel" class="luxury-social-btn" target="_blank"
+                                rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="https://linkedin.com/company/YourCompany" class="luxury-social-btn" target="_blank"
+                                rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="https://instagram.com/legacycreditcapital" class="luxury-social-btn"
+                                target="_blank" rel="noopener" aria-label="Instagram"><i
+                                    class="fab fa-instagram"></i></a>
+                            <a href="https://twitter.com/YourHandle" class="luxury-social-btn" target="_blank"
+                                rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                        <div class="footer-rating-box">
+                            <div class="footer-rating-stars">★★★★★</div>
+                            <div class="footer-rating-text">Rated 4.9/5 by 30,000+ Clients</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compliance & Legal Disclosure Box -->
+            <div class="footer-disclaimer-box">
+                <strong><i class="fas fa-info-circle"></i> Disclaimer &amp; Legal Disclosure (CROA Notice):</strong>
+                DreamScore is an independent credit repair organization. You have the right to dispute inaccurate,
+                erroneous, or unverifiable information directly with credit reporting agencies (Equifax, Experian,
+                TransUnion) under the Fair Credit Reporting Act (FCRA). DreamScore does not guarantee specific score
+                increases, as results vary per individual credit profile. Credit monitoring through Smart Credit is
+                required throughout active dispute rounds.
+            </div>
+
+            <!-- Footer Bottom Bar -->
+            <div class="footer-bottom-bar">
+                <div>
+                    © 2026 DreamScore. All Rights Reserved. Transforming Credit Nationwide.
                 </div>
 
-                <!-- In-Card Request Form -->
-                <form id="consultationSectionForm" class="consult-section-form" onsubmit="handleSectionConsultSubmit(event)">
-                    <div class="consult-form-grid">
-                        <div class="consult-form-group">
-                            <label class="consult-label">First Name *</label>
-                            <input type="text" name="firstName" class="consult-input" placeholder="e.g. Marcus" required>
-                        </div>
-                        <div class="consult-form-group">
-                            <label class="consult-label">Last Name *</label>
-                            <input type="text" name="lastName" class="consult-input" placeholder="e.g. Johnson" required>
-                        </div>
-                    </div>
+                <ul class="footer-bottom-legal">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><span>•</span></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><span>•</span></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
 
-                    <div class="consult-form-grid">
-                        <div class="consult-form-group">
-                            <label class="consult-label">Phone Number *</label>
-                            <input type="tel" name="phone" class="consult-input" placeholder="(555) 000-0000" required>
-                        </div>
-                        <div class="consult-form-group">
-                            <label class="consult-label">Email Address *</label>
-                            <input type="email" name="email" class="consult-input" placeholder="name@email.com" required>
-                        </div>
-                    </div>
-
-                    <div class="consult-form-group">
-                        <label class="consult-label">Primary Financial Goal</label>
-                        <select name="creditGoal" class="consult-select">
-                            <option value="buy-home">🏡 Buying a Home / Getting a Mortgage</option>
-                            <option value="business-funding">💼 Business Funding &amp; Commercial Loans</option>
-                            <option value="buy-car">🚗 Buying a Car / Lowering Auto Interest</option>
-                            <option value="remove-negatives">⚡ Removing Collections, Charge-Offs &amp; Bankruptcies</option>
-                            <option value="improve-score">📈 General Score Improvement (Reach 720+ / 800+)</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="consult-submit-button">
-                        <i class="fas fa-paper-plane"></i> Request My Free Call &amp; Action Plan
+                <div class="footer-security-badges">
+                    <span class="ssl-badge"><i class="fas fa-lock"></i> SSL Secured</span>
+                    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+                        class="footer-back-to-top" aria-label="Back to top">
+                        <i class="fas fa-arrow-up"></i>
                     </button>
-                    
-                    <p class="consult-section-form-msg" id="consultSectionMsg" role="status" aria-live="polite"></p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
-                    <div class="consult-privacy-note">
-                        <i class="fas fa-lock"></i> Strictly confidential. No spam, no sales calls after hours.
+    <!-- ═══════════════════════════════════════
+     CONSULTATION FORM MODAL
+════════════════════════════════════════ -->
+    <div class="modal-overlay" id="formModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeFormModal()" aria-label="Close modal">×</button>
+                <h3 class="modal-title">Get Your Free Consultation</h3>
+                <p class="modal-subtitle">Complete this quick form to get started</p>
+            </div>
+            <div class="modal-body">
+                <form id="multiStepForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">First Name *</label>
+                            <input type="text" class="form-input" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Last Name *</label>
+                            <input type="text" class="form-input" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number *</label>
+                        <input type="tel" class="form-input" name="phone" required>
+                    </div>
+                    <div class="form-navigation">
+                        <button type="submit" class="btn-submit">Fix My Credit Now</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <!-- Proof / Metrics Ribbon under the consultation cards -->
-    <div class="consultation-proof-bar" data-anim="up">
-        <div class="proof-metric-item">
-            <span class="proof-metric-number">30,000+</span>
-            <span class="proof-metric-label">Credit Files Audited</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-metric-item">
-            <span class="proof-metric-number">$100M+</span>
-            <span class="proof-metric-label">Negative Debt Challenged</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-metric-item">
-            <span class="proof-metric-number">4.9 / 5.0</span>
-            <span class="proof-metric-label">Client Satisfaction Rating</span>
-        </div>
-        <div class="proof-divider"></div>
-        <div class="proof-metric-item">
-            <span class="proof-metric-number">100% Free</span>
-            <span class="proof-metric-label">No Obligation Strategy Call</span>
-        </div>
-    </div>
-</section>
+    <!-- Main Interactive Script -->
+    <script src="assets/js/main.js"></script>
 
-<!-- ═══════════════════════════════════════
-     FOUNDER SECTION
-════════════════════════════════════════ -->
-<section class="founder-section" id="about">
-    <div class="founder-content">
-        <div class="founder-text" data-anim="left">
-            <h2 class="founder-title">Meet Your Credit Expert</h2>
-            <p class="founder-sub">The person behind your transformation</p>
-            <div class="founder-body">
-                <p>Welcome to DreamScore! I'm Taletha, and I founded DreamScore out of a genuine passion for helping people unlock their financial potential. My journey into credit repair began with a simple realization: so many people have dreams that feel out of reach — not because they lack ambition, but because they need a trusted guide to help rebuild their credit and reclaim their financial freedom.</p>
-                <p>I created DreamScore to be that guide. With a background in financial services and a commitment to empowering others, I built a place where clients feel supported, educated, and confident in their financial future.</p>
-                <p>At DreamScore, we believe in turning credit scores into stepping stones toward your biggest goals — whether that's owning a home, starting a business, or simply feeling in control of your money. Thank you for letting us be part of your story.</p>
-            </div>
-            <ul class="founder-highlights">
-                <li><i class="fas fa-check-circle"></i> Helped thousands of clients rebuild their credit</li>
-                <li><i class="fas fa-check-circle"></i> Expert in 3-bureau dispute strategies</li>
-                <li><i class="fas fa-check-circle"></i> Committed to real results — not empty promises</li>
-            </ul>
-        </div>
-        <div class="founder-image" data-anim="right">
-            <div class="image-wrapper">
-                <img src="assets/images/Founder.jpg" alt="Taletha Crow — Credit Expert" class="founder-photo">
-                <div class="image-badge">
-                    <span class="badge-text">Taletha Crow — Founder, DreamScore</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- LeadConnector Chat Widget -->
+    <script src="https://widgets.leadconnectorhq.com/loader.js"
+        data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
+        data-widget-id="68c33bf986462d48f88a2f88">
+        </script>
 
-<!-- ═══════════════════════════════════════
-     WHAT HAPPENS AFTER PURCHASE
-════════════════════════════════════════ -->
-<section class="purchase-section" id="process">
-    <div class="section-header" data-anim="up">
-        <span class="section-eyebrow">Your Roadmap</span>
-        <h2 class="section-title">What Happens<br><span style="color:var(--gold-dark)">After Purchase?</span></h2>
-        <p class="section-subtitle">Follow these steps exactly — every step is required to start your service.</p>
-    </div>
-
-    <div class="purchase-steps" data-stagger>
-        <!-- Step 01 -->
-        <div class="step-card">
-            <div class="step-num">01</div>
-            <div class="step-title">Purchase Your Plan</div>
-            <p class="step-desc">Secure your spot and get started. Choose the plan that fits your goals — monthly, one-time, or couples.</p>
-        </div>
-
-        <!-- Step 02 -->
-        <div class="step-card">
-            <div class="step-num">02</div>
-            <div class="step-title">Activate Smart Credit</div>
-            <div class="step-price">($39/Month Required)</div>
-            <div class="step-mandatory">Mandatory to Start Your Service</div>
-            <ul class="step-list">
-                <li>Must be activated immediately after purchase</li>
-                <li>We cannot access or work your credit without it</li>
-                <li>Pay the $39 Smart Credit fee to unlock your account</li>
-            </ul>
-            <div class="step-warning">
-                <div class="step-warning-item"><i class="fas fa-exclamation-triangle"></i> NO SMART CREDIT = NO SERVICE</div>
-                <div class="step-warning-item"><i class="fas fa-lock"></i> ACCOUNT WILL BE PLACED ON HOLD</div>
-            </div>
-        </div>
-
-        <!-- Step 03 -->
-        <div class="step-card">
-            <div class="step-num">03</div>
-            <div class="step-title">Complete Onboarding + Submit Documents</div>
-            <p class="step-desc">Check your email immediately after purchase and complete your onboarding form.</p>
-            <div class="step-docs-title">Required Documents (Non-Negotiable)</div>
-            <ul class="step-list">
-                <li>Valid Government-Issued ID</li>
-                <li>Social Security Card or SSN Documentation</li>
-                <li>Proof of Address (dated within the last 30 days)</li>
-            </ul>
-            <div class="step-docs-title" style="margin-top:16px;">Acceptable Proof of Address</div>
-            <ul class="step-list">
-                <li>Utility bill</li>
-                <li>Bank statement</li>
-                <li>Lease or mortgage statement</li>
-            </ul>
-        </div>
-
-        <!-- Step 04 -->
-        <div class="step-card">
-            <div class="step-num">04</div>
-            <div class="step-title">We Begin Your Disputes</div>
-            <p class="step-desc">Once Smart Credit is active and onboarding is complete, we get to work immediately.</p>
-            <ul class="step-list">
-                <li>Your 1st round of disputes is sent after onboarding is complete</li>
-                <li>You receive 6 total rounds of disputes (unless on the Unlimited plan)</li>
-                <li>A new round is sent every 30–45 days</li>
-                <li>We handle the entire process — you focus on your results</li>
-            </ul>
-
-            <div class="step-important">
-                <div class="step-important-title">⚠ Important — Your Account Will Not Be Started If:</div>
-                <ul class="step-important-list">
-                    <li>Smart Credit is not activated</li>
-                    <li>Onboarding is not completed</li>
-                    <li>Documents have not been submitted</li>
-                </ul>
-                <div class="step-verdict">All 3 Steps Must Be Complete Before Work Begins</div>
-            </div>
-        </div>
-    </div>
-
-    <div style="text-align:center;margin-top:48px;">
-        <a href="#consultation" class="btn-gold btn-cta-lg">Book Free Consultation →</a>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     TESTIMONIALS
-════════════════════════════════════════ -->
-<section class="testimonials-section" id="testimonials">
-    <div class="section-header" data-anim="up">
-        <span class="section-eyebrow">Client Results</span>
-        <h2 class="section-title">Real People. Real Results.</h2>
-        <p class="section-subtitle">We show receipts — not just promises. Here's what our clients have achieved.</p>
-    </div>
-
-    <div class="testimonials-grid" data-stagger>
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"DreamScore removed 17 negative items including a bankruptcy. My score went from 372 to 719 in just 45 days!"</p>
-            <div class="testimonial-author">Marcus Johnson</div>
-            <div class="testimonial-meta">Real Estate Investor • Houston, TX</div>
-            <div class="before-after-container">
-                <div class="before-after-item">
-                    <div class="score-label">Before</div>
-                    <div class="score-value">372</div>
-                </div>
-                <div class="before-after-item">
-                    <div class="score-label">After</div>
-                    <div class="score-value">719</div>
-                </div>
-            </div>
-            <div class="testimonial-image">
-                <img src="assets/images/test1.jpg" alt="Client result screenshot">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"Collections stopped calling and I got approved for $75K in funding. My salon is thriving now!"</p>
-            <div class="testimonial-author">Keisha Williams</div>
-            <div class="testimonial-meta">Salon Owner • Atlanta, GA</div>
-            <div class="before-after-container">
-                <div class="before-after-item">
-                    <div class="score-label">Before</div>
-                    <div class="score-value">496</div>
-                </div>
-                <div class="before-after-item">
-                    <div class="score-label">After</div>
-                    <div class="score-value">755</div>
-                </div>
-            </div>
-            <div class="testimonial-image">
-                <img src="assets/images/test2.jpg" alt="Client result screenshot">
-            </div>
-        </div>
-
-        <div class="testimonial-card">
-            <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"My divorce destroyed my credit. DreamScore rebuilt everything in 30 days. Just bought my dream car!"</p>
-            <div class="testimonial-author">Jennifer Martinez</div>
-            <div class="testimonial-meta">Entrepreneur • Los Angeles, CA</div>
-            <div class="before-after-container">
-                <div class="before-after-item">
-                    <div class="score-label">Before</div>
-                    <div class="score-value">428</div>
-                </div>
-                <div class="before-after-item">
-                    <div class="score-label">After</div>
-                    <div class="score-value">801</div>
-                </div>
-            </div>
-            <div class="testimonial-image">
-                <img src="assets/images/test3.jpg" alt="Client result screenshot">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     FAQ
-════════════════════════════════════════ -->
-<section class="faq-section" id="faq">
-    <div class="section-header" data-anim="up">
-        <span class="section-eyebrow">Still Not Sure?</span>
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Everything you need to know before you get started.</p>
-    </div>
-
-    <div class="faq-container" data-stagger>
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                What happens during my Free Consultation?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">During your free consultation, our certified credit specialist will conduct a line-by-line audit of your credit reports across all 3 bureaus (Equifax, Experian, TransUnion). We will identify every disputable negative item, explain your rights under federal law (FCRA/CROA), and give you an actionable roadmap to hit your target score — 100% free with zero obligation.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How long does it take to see results?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">Most clients begin seeing initial removals within 30–45 days after their first round of disputes is sent. We send 6 total rounds, each spaced 30–45 days apart. Results vary based on the number and type of negative items on your report, but you'll be updated every step of the way.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                What items can you remove?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">We dispute foreclosures, student loans, late payments, bankruptcies, collections, judgments, repossessions, child support, charge-offs, medical bills, public records, and hard inquiries — across all 3 bureaus simultaneously. No item is off-limits for dispute.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How can I improve my credit score faster?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">In addition to our dispute process, we recommend: keeping credit utilization below 30%, making all payments on time, avoiding opening too many new accounts at once, and maintaining older accounts to build history. We'll give you specific guidance during onboarding.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                Where can I see my credit reports? Is there a charge?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">You can access free reports at AnnualCreditReport.com. We also require Smart Credit ($39/month) which gives you live, real-time access to all 3 bureau reports and allows us to monitor changes as disputes are processed. Smart Credit is mandatory to begin your service.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How long does it take to fix my credit?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">Most standard programs run 3–6 months depending on your credit profile. Our service includes 6 rounds of disputes. Clients with more complex files or the Unlimited plan continue until they reach their goals. You will see incremental improvements throughout the process — not just at the end.</div>
-            </div>
-        </div>
-
-        <div class="faq-item">
-            <button class="faq-question" onclick="toggleFaq(this)">
-                How do I get started?
-                <span class="faq-icon">+</span>
-            </button>
-            <div class="faq-answer">
-                <div class="faq-answer-inner">Getting started is simple: (1) Book your Free Consultation above or choose a slot on our live calendar, (2) We review your credit profile and design your customized action plan, (3) Activate Smart Credit ($39/month) so we can pull your real-time 3-bureau reports, and (4) We launch your aggressive dispute rounds immediately.</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     FINAL CTA
-════════════════════════════════════════ -->
-<section class="final-cta">
-    <div class="final-container" data-anim="up">
-        <span class="final-eyebrow">Stop Waiting — Start Winning</span>
-        <h2 class="final-title">Every Day You Wait Is<br><span>Money You're Losing.</span></h2>
-        <p class="final-subtitle">Thousands of clients have already fixed their credit and unlocked opportunities they once thought were impossible. You're next.</p>
-
-        <div class="final-actions">
-            <a href="#consultation" class="btn-gold btn-cta-lg">Claim Free Consultation →</a>
-            <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG"
-               target="_blank" rel="noopener"
-               class="btn-outline-gold">Direct Calendar Booking</a>
-        </div>
-
-        <div class="final-trust">
-            <span><i class="fas fa-shield-alt"></i> No Hard Pull</span>
-            <span><i class="fas fa-lock"></i> Secure &amp; Private</span>
-            <span><i class="fas fa-times-circle"></i> Cancel Anytime</span>
-            <span><i class="fas fa-star"></i> 30,000+ Clients Served</span>
-        </div>
-    </div>
-</section>
-
-<!-- ═══════════════════════════════════════
-     PRE-FOOTER TRUST STRIP
-════════════════════════════════════════ -->
-<div class="footer-trust-strip">
-    <div class="footer-trust-container">
-        <div class="footer-trust-item">
-            <div class="footer-trust-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="footer-trust-text">
-                <strong>CROA &amp; FCRA Compliant</strong>
-                <span>100% Legal Dispute Methods</span>
-            </div>
-        </div>
-        <div class="footer-trust-item">
-            <div class="footer-trust-icon"><i class="fas fa-lock"></i></div>
-            <div class="footer-trust-text">
-                <strong>256-Bit SSL Protection</strong>
-                <span>Bank-Grade Data Encryption</span>
-            </div>
-        </div>
-        <div class="footer-trust-item">
-            <div class="footer-trust-icon"><i class="fas fa-bolt"></i></div>
-            <div class="footer-trust-text">
-                <strong>3-Bureau Direct Attack</strong>
-                <span>Equifax, Experian &amp; TransUnion</span>
-            </div>
-        </div>
-        <div class="footer-trust-item">
-            <div class="footer-trust-icon"><i class="fas fa-award"></i></div>
-            <div class="footer-trust-text">
-                <strong>30,000+ Happy Clients</strong>
-                <span>Real Receipts &amp; Verified Results</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     FOOTER
-════════════════════════════════════════ -->
-<footer>
-    <div class="footer-container">
-        <div class="footer-grid">
-            <!-- Col 1: Brand & Bio -->
-            <div class="footer-column">
-                <a href="#home" aria-label="DreamScore Home">
-                    <img src="assets/images/logo.png" alt="DreamScore Logo" class="footer-logo">
-                </a>
-                <p class="footer-description">
-                    Transform your credit, transform your life. DreamScore is committed to helping you achieve real financial freedom through proven, aggressive 3-bureau credit repair strategies.
-                </p>
-                <div class="footer-badge-pill">
-                    <i class="fas fa-certificate"></i> Certified Credit Restoration
-                </div>
-            </div>
-
-            <!-- Col 2: Navigation Links -->
-            <div class="footer-column">
-                <h3>Navigation</h3>
-                <ul class="footer-links-list">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#remove">What We Remove</a></li>
-                    <li><a href="#consultation">Free Consultation</a></li>
-                    <li><a href="#process">After Purchase</a></li>
-                    <li><a href="#testimonials">Client Results</a></li>
-                    <li><a href="#faq">Frequently Asked</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 3: Items We Dispute -->
-            <div class="footer-column">
-                <h3>We Dispute</h3>
-                <ul class="footer-links-list">
-                    <li><a href="#remove">Foreclosures</a></li>
-                    <li><a href="#remove">Collections</a></li>
-                    <li><a href="#remove">Charge-Offs</a></li>
-                    <li><a href="#remove">Bankruptcies</a></li>
-                    <li><a href="#remove">Late Payments</a></li>
-                    <li><a href="#remove">Student Loans</a></li>
-                </ul>
-            </div>
-
-            <!-- Col 4: Contact & Support -->
-            <div class="footer-column">
-                <h3>Contact &amp; Hours</h3>
-                <div class="footer-contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                        <strong>Client Support:</strong><br>
-                        <a href="mailto:support@unlockyourdreamscore.com">support@unlockyourdreamscore.com</a>
-                    </div>
-                </div>
-                <div class="footer-contact-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                        <strong>Business Hours:</strong><br>
-                        Mon–Fri: 9:00 AM – 6:00 PM CST
-                    </div>
-                </div>
-                <div class="footer-contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <strong>Nationwide Service:</strong><br>
-                        All 50 US States Covered
-                    </div>
-                </div>
-                <a href="https://api.leadconnectorhq.com/widget/booking/EzwplJXjhDjj4GFSqiXG"
-                   target="_blank" rel="noopener"
-                   class="footer-consult-btn">
-                    <i class="fas fa-calendar-check"></i> Free Consultation
-                </a>
-            </div>
-
-            <!-- Col 5: Connect & Reviews -->
-            <div class="footer-column">
-                <h3>Stay Connected</h3>
-                <div class="footer-social-wrapper">
-                    <p class="footer-social-title">Follow Us Online</p>
-                    <div class="social-icons-luxury">
-                        <a href="https://facebook.com/YourPage"           class="luxury-social-btn" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://youtube.com/@YourChannel"        class="luxury-social-btn" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://linkedin.com/company/YourCompany" class="luxury-social-btn" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://instagram.com/YourHandle"        class="luxury-social-btn" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://twitter.com/YourHandle"          class="luxury-social-btn" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                    <div class="footer-rating-box">
-                        <div class="footer-rating-stars">★★★★★</div>
-                        <div class="footer-rating-text">Rated 4.9/5 by 30,000+ Clients</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Compliance & Legal Disclosure Box -->
-        <div class="footer-disclaimer-box">
-            <strong><i class="fas fa-info-circle"></i> Disclaimer &amp; Legal Disclosure (CROA Notice):</strong>
-            DreamScore is an independent credit repair organization. You have the right to dispute inaccurate, erroneous, or unverifiable information directly with credit reporting agencies (Equifax, Experian, TransUnion) under the Fair Credit Reporting Act (FCRA). DreamScore does not guarantee specific score increases, as results vary per individual credit profile. Credit monitoring through Smart Credit is required throughout active dispute rounds.
-        </div>
-
-        <!-- Footer Bottom Bar -->
-        <div class="footer-bottom-bar">
-            <div>
-                © 2026 DreamScore. All Rights Reserved. Transforming Credit Nationwide.
-            </div>
-
-            <ul class="footer-bottom-legal">
-                <li><a href="#">Privacy Policy</a></li>
-                <li><span>•</span></li>
-                <li><a href="#">Terms of Service</a></li>
-                <li><span>•</span></li>
-                <li><a href="#">Disclaimer</a></li>
-            </ul>
-
-            <div class="footer-security-badges">
-                <span class="ssl-badge"><i class="fas fa-lock"></i> SSL Secured</span>
-                <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="footer-back-to-top" aria-label="Back to top">
-                    <i class="fas fa-arrow-up"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<!-- ═══════════════════════════════════════
-     CONSULTATION FORM MODAL
-════════════════════════════════════════ -->
-<div class="modal-overlay" id="formModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <button class="modal-close" onclick="closeFormModal()" aria-label="Close modal">×</button>
-            <h3 class="modal-title">Get Your Free Consultation</h3>
-            <p class="modal-subtitle">Complete this quick form to get started</p>
-        </div>
-        <div class="modal-body">
-            <form id="multiStepForm" onsubmit="handleSubmit(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label">First Name *</label>
-                        <input type="text" class="form-input" name="firstName" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label">Last Name *</label>
-                        <input type="text" class="form-input" name="lastName" required>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Email Address *</label>
-                    <input type="email" class="form-input" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Phone Number *</label>
-                    <input type="tel" class="form-input" name="phone" required>
-                </div>
-                <div class="form-navigation">
-                    <button type="submit" class="btn-submit">Fix My Credit Now</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- Main Interactive Script -->
-<script src="assets/js/main.js"></script>
-
-<!-- LeadConnector Chat Widget -->
-<script
-  src="https://widgets.leadconnectorhq.com/loader.js"
-  data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js"
-  data-widget-id="68c33bf986462d48f88a2f88">
-</script>
-
-<!-- Secureserver / GoDaddy Performance Monitoring -->
-<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'},{'ap':'cpsh-oh'},{'server':'p3plzcpnl509006'},{'dcenter':'p3'},{'cp_id':'10931174'},{'cp_cl':'8'})</script>
-<script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script>
+    <!-- Secureserver / GoDaddy Performance Monitoring -->
+    <script>'undefined' === typeof _trfq || (window._trfq = []); 'undefined' === typeof _trfd && (window._trfd = []), _trfd.push({ 'tccl.baseHost': 'secureserver.net' }, { 'ap': 'cpsh-oh' }, { 'server': 'p3plzcpnl509006' }, { 'dcenter': 'p3' }, { 'cp_id': '10931174' }, { 'cp_cl': '8' })</script>
+    <script src='https://img1.wsimg.com/traffic-assets/js/tccl.min.js'></script>
 </body>
+
 </html>
